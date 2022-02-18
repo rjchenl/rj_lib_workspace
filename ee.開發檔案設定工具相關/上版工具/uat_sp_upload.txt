@@ -1,0 +1,2 @@
+workpath=D:\DEV\CIFX_GIT\cifx
+sqlplusPath=D:\DevEnvironment\sqlPlus\instantclient-basic-windows.x64-19.3.0.0.0dbru\instantclient_19_3

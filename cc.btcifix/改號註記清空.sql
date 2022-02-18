@@ -1,0 +1,32 @@
+--=================== 舊號註記清除作業 ===================
+
+--查舊號顧客
+   SELECT cif_verified_id,EVER_CHANGED_CERT_NO,PRIOR_PERSON_IDENTIFITY_NO FROM CIFX.TB_CUSTOMER
+    WHERE EVER_CHANGED_CERT_NO IS NOT NULL
+    AND PRIOR_PERSON_IDENTIFITY_NO IS  not NULL
+   ;
+/
+--   F121992545	Y	F121129239
+   select cif_verified_id,EVER_CHANGED_CERT_NO,PRIOR_PERSON_IDENTIFITY_NO FROM CIFX.TB_CUSTOMER
+   where cif_verified_id = 'F121129239';
+/
+
+   --模擬舊號F121992545
+
+   --模擬新號F121129239
+
+/
+
+
+--===================== 重送同步電文 ===================================
+
+UPDATE CIFX.TB_SERVICE_EXECUTION_CONTROL
+SET EXECUTION_STATE     = 'TO_EXECUTE',
+    RESULT_CODE         = NULL,
+    EXECUTING_TIMESTAMP = null,
+    EXECUTED_TIMESTAMP  = null,
+    ap_server_EXECUTING = NULL
+WHERE SERVICE_EXECUTION_CONTROL_ID IN ('1636448165161664-4283243-08-01')
+  AND EXECUTION_TYPE = 'STAGE1_EXECUTION';
+/
+
