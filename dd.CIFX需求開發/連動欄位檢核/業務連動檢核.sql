@@ -42,7 +42,8 @@ ORDER BY run_time DESC;
 
 SELECT *
 FROM cifx.tb_joblog
-WHERE job_id = 'updateCustomer' AND job_no = '20220215164724' AND memo LIKE '%V_037%'
+WHERE job_id = 'updateCustomer' AND job_no = '20220218141515'
+AND memo LIKE '%V_065%'
 ORDER BY run_time ASC;
 
 
@@ -60,9 +61,14 @@ GROUP BY customer_type_code;
 
 UPDATE cifx.tb_customer
 SET
-  income_tax_type = '2'
-WHERE cif_verified_id = 'C29900017A';
+  customer_type_code = '04'
+WHERE cif_verified_id = 'A123456798';
 COMMIT;
+
+SELECT cif_verified_id,CIF_ORIGINAL_ID,birthday
+FROM cifx.tb_customer cust
+WHERE cif_verified_id = 'A123456798';
+
 
 SELECT birthday
 FROM cifx.tb_customer
@@ -108,6 +114,10 @@ FROM edls.tb_branch
 --       WHERE BH_CODE = '9915'
 WHERE bh_b_code = 'B0200';
 
+SELECT dgbas_industry_code
+FROM cifx.tb_customer
+GROUP BY dgbas_industry_code;
+
 SELECT cif_original_id,
        dgbas_industry_code
 FROM cifx.tb_customer
@@ -138,4 +148,14 @@ FROM cifx.tb_customer
 GROUP BY cif_original_id,
          birthday
 HAVING COUNT(1)> 1;
+
+commit;
+
+select * from cifx.tb_customer
+where regexp_like(substr(nvl(cif_verified_id,' '),length(nvl(cif_verified_id,' '))),'[[:alpha:]]');
+
+
+select INDUSTRY_TYPE_CODE,count(1) from cifx.tb_customer cust
+group by INDUSTRY_TYPE_CODE;
+
 
