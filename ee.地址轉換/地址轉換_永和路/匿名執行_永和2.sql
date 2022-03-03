@@ -5,6 +5,15 @@ V_EXTENSION_UUID INTEGER := 0 ;
 
 TYPE t_mapping_addr_ext IS TABLE OF cifx_batch.TT_ADDR_MAPPING_EXTENSION%ROWTYPE;
 mapping_addr_ext_bulk   t_mapping_addr_ext;
+
+type r_mapping_addr_ext_record is record(
+old_addr cifx_batch.TT_ADDR_MAPPING_EXTENSION.old_addr%type,
+new_addr cifx_batch.TT_ADDR_MAPPING_EXTENSION.new_addr%type
+);
+type t_mapping_addr is table of r_mapping_addr_ext_record;
+v_mapping_addr_ext_bulk t_mapping_addr;
+
+
 V_CASE_TYPE VARCHAR2(40 CHAR);
 v_tmp_regi_addr_detail varchar2(200 char);
 v_tmp_cont_addr_detail varchar2(200 char);
@@ -12,7 +21,7 @@ v_seq number := 0;
 v_regi_addr_changed boolean := FALSE;
 v_cont_addr_changed boolean := FALSE;
 
-TYPE v_map_type IS TABLE OF VARCHAR2(30) INDEX BY VARCHAR2(30);
+TYPE v_map_type IS TABLE OF VARCHAR2(3000) INDEX BY VARCHAR2(3000);
 v_model_json_map v_map_type;
 
 
@@ -113,35 +122,37 @@ loop
     v_regi_addr_changed := false;
     v_cont_addr_changed := false;
 
-    select * bulk collect into mapping_addr_ext_bulk from cifx_batch.TT_ADDR_MAPPING_EXTENSION;
+    select old_addr,new_addr bulk collect into v_mapping_addr_ext_bulk from cifx_batch.TT_ADDR_MAPPING_EXTENSION
+    group by old_addr,new_addr
+    ;
 
-    for i in mapping_addr_ext_bulk.first..mapping_addr_ext_bulk.last
+    for i in v_mapping_addr_ext_bulk.first..v_mapping_addr_ext_bulk.last
     loop
 
         DBMS_OUTPUT.PUT_LINE('=================== 單一地址對應 start ===========================');
         v_tmp_regi_addr_detail:= null;
         v_tmp_cont_addr_detail:= null;
         V_CASE_TYPE:= null;
-        DBMS_OUTPUT.PUT_LINE('mapping_addr_ext_bulk(i).old_addr:' || mapping_addr_ext_bulk(i).old_addr);
-        DBMS_OUTPUT.PUT_LINE('mapping_addr_ext_bulk(i).new_addr:' || mapping_addr_ext_bulk(i).new_addr);
+        DBMS_OUTPUT.PUT_LINE('v_mapping_addr_ext_bulk(i).old_addr:' || v_mapping_addr_ext_bulk(i).old_addr);
+        DBMS_OUTPUT.PUT_LINE('v_mapping_addr_ext_bulk(i).new_addr:' || v_mapping_addr_ext_bulk(i).new_addr);
 
 
-        if REGEXP_LIKE(nvl(single_cust.REGI_ADDRESS_DETAIL,' '),mapping_addr_ext_bulk(i).old_addr) then
+        if REGEXP_LIKE(nvl(single_cust.REGI_ADDRESS_DETAIL,' '),v_mapping_addr_ext_bulk(i).old_addr) then
         DBMS_OUTPUT.PUT_LINE('居住地有改');
-        DBMS_OUTPUT.PUT_LINE('比對有改地址:' ||mapping_addr_ext_bulk(i).old_addr );
+        DBMS_OUTPUT.PUT_LINE('比對有改地址:' ||v_mapping_addr_ext_bulk(i).old_addr );
         DBMS_OUTPUT.PUT_LINE('顧客原居住地:' || single_cust.REGI_ADDRESS_DETAIL);
-        DBMS_OUTPUT.PUT_LINE('顧客新居住地:' || replace(single_cust.REGI_ADDRESS_DETAIL,mapping_addr_ext_bulk(i).old_addr,mapping_addr_ext_bulk(i).new_addr));
+        DBMS_OUTPUT.PUT_LINE('顧客新居住地:' || replace(single_cust.REGI_ADDRESS_DETAIL,v_mapping_addr_ext_bulk(i).old_addr,v_mapping_addr_ext_bulk(i).new_addr));
         v_regi_addr_changed := true;
-        v_model_json_map('change_regi_addr') := replace(single_cust.REGI_ADDRESS_DETAIL,mapping_addr_ext_bulk(i).old_addr,mapping_addr_ext_bulk(i).new_addr);
+        v_model_json_map('change_regi_addr') := replace(single_cust.REGI_ADDRESS_DETAIL,v_mapping_addr_ext_bulk(i).old_addr,v_mapping_addr_ext_bulk(i).new_addr);
         end if;
 
-        if REGEXP_LIKE(nvl(single_cust.CONT_ADDRESS_DETAIL,' '),mapping_addr_ext_bulk(i).old_addr) then
+        if REGEXP_LIKE(nvl(single_cust.CONT_ADDRESS_DETAIL,' '),v_mapping_addr_ext_bulk(i).old_addr) then
         DBMS_OUTPUT.PUT_LINE('通訊地有改');
-        DBMS_OUTPUT.PUT_LINE('比對有改地址:' ||mapping_addr_ext_bulk(i).old_addr );
+        DBMS_OUTPUT.PUT_LINE('比對有改地址:' ||v_mapping_addr_ext_bulk(i).old_addr );
         DBMS_OUTPUT.PUT_LINE('顧客原通訊地:' || single_cust.CONT_ADDRESS_DETAIL);
-        DBMS_OUTPUT.PUT_LINE('顧客新通訊地:' || replace(single_cust.CONT_ADDRESS_DETAIL,mapping_addr_ext_bulk(i).old_addr,mapping_addr_ext_bulk(i).new_addr));
+        DBMS_OUTPUT.PUT_LINE('顧客新通訊地:' || replace(single_cust.CONT_ADDRESS_DETAIL,v_mapping_addr_ext_bulk(i).old_addr,v_mapping_addr_ext_bulk(i).new_addr));
         v_cont_addr_changed := true;
-        v_model_json_map('change_cont_addr') := replace(single_cust.CONT_ADDRESS_DETAIL,mapping_addr_ext_bulk(i).old_addr,mapping_addr_ext_bulk(i).new_addr);
+        v_model_json_map('change_cont_addr') := replace(single_cust.CONT_ADDRESS_DETAIL,v_mapping_addr_ext_bulk(i).old_addr,v_mapping_addr_ext_bulk(i).new_addr);
         end if;
         DBMS_OUTPUT.PUT_LINE('=================== 單一地址對應 end ===========================');
     end loop;

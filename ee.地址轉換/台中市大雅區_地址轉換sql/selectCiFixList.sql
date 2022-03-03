@@ -81,7 +81,7 @@ select
     'Y' AS WRITE_LOG_FLAG,
     '' AS TO_CIP_FLAG,
     '' AS PUSH_FLAG,
-    'RE11000729' AS REQ_NO
+    'IR2022011300016' AS REQ_NO
 from CIFX_BATCH.tt_impt_ci_list ci_list
 
     unpivot (
@@ -175,7 +175,7 @@ select
     'Y' AS WRITE_LOG_FLAG,
     '' AS TO_CIP_FLAG,
     '' AS PUSH_FLAG,
-    'RE11000729' AS REQ_NO
+    'IR2022011300016' AS REQ_NO
 from CIFX_BATCH.tt_impt_ci_list ci_list
 
     unpivot (
@@ -267,7 +267,7 @@ select
     'Y' AS WRITE_LOG_FLAG,
     '' AS TO_CIP_FLAG,
     '' AS PUSH_FLAG,
-    'RE11000729' AS REQ_NO
+    'IR2022011300016' AS REQ_NO
 from CIFX_BATCH.tt_impt_ci_list ci_list
 
     unpivot (
