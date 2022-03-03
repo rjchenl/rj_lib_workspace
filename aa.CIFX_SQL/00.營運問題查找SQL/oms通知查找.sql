@@ -76,7 +76,21 @@ order by req_timestamp desc
 --同步任務歷史
 select * from cifx.tb_service_execution_control sec
 where sec.circi_key ='X120012087'
+AND EXECUTION_TYPE = 'STAGE1_EXECUTION'
 order by req_timestamp desc
+;
+
+--清除同一顧客所有同步任務
+
+--同步任務歷史
+UPDATE CIFX.TB_SERVICE_EXECUTION_CONTROL
+SET EXECUTION_STATE                 = 'EXECUTED',
+  ap_server_EXECUTING               = NULL
+WHERE SERVICE_EXECUTION_CONTROL_ID IN (
+select SERVICE_EXECUTION_CONTROL_ID from cifx.tb_service_execution_control sec
+where sec.circi_key ='E12131227A'
+AND EXECUTION_TYPE = 'STAGE1_EXECUTION'
+)
 ;
 
 

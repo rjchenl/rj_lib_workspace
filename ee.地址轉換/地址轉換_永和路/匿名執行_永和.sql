@@ -4,21 +4,26 @@ cursor mapping_cursor_type is
 select * from cifx_batch.tt_addr_mapping order by uuid asc;
 
 rec_map mapping_cursor_type%rowtype;
+v_test_cif_verified_Id varchar2(100 char) := '';
 
-
-
+v_sql varchar2(3000 char) := '';
+v_tmp_addr_mapping_old_addr varchar2(3000 char) := '';
 v_seq number := 0;
+
+
 
 type t_fetch_table is table of cifx.tb_customer%ROWTYPE;
 IMPACT_CUSTS_BULK_OF_PATTERN_0  T_FETCH_TABLE;
+
+
 IMPACT_CUSTS_BULK_OF_PATTERN_1  T_FETCH_TABLE;
 IMPACT_CUSTS_BULK_OF_PATTERN_2  T_FETCH_TABLE;
 IMPACT_CUSTS_BULK_OF_PATTERN_3  T_FETCH_TABLE;
 
-IMPACT_CUSTS_BULK_OF_PATTERN_0_0 T_FETCH_TABLE;
-IMPACT_CUSTS_BULK_OF_PATTERN_1_1 T_FETCH_TABLE;
-IMPACT_CUSTS_BULK_OF_PATTERN_2_2 T_FETCH_TABLE;
-IMPACT_CUSTS_BULK_OF_PATTERN_3_3 T_FETCH_TABLE;
+v_pattern_type_0 varchar2(3000 char) := '';
+v_pattern_type_1 varchar2(3000 char) := '';
+v_pattern_type_2 varchar2(3000 char) := '';
+v_pattern_type_3 varchar2(3000 char) := '';
 
 
 
@@ -37,6 +42,7 @@ TYPE varrary_type IS TABLE OF VARCHAR2(256 CHAR);
 -------------------------- 內部函數 ----------------------------
 
   PROCEDURE SP_INSERT_TMP(
+  i_pattern_type varchar2,
   i_rec_map mapping_cursor_type%rowtype,
   i_impact_cust_bulk T_FETCH_TABLE,
   i_index integer
@@ -66,9 +72,11 @@ TYPE varrary_type IS TABLE OF VARCHAR2(256 CHAR);
         I_CASE_TYPE := '戶籍他/通訊地都轉換';
     END IF;
 
+     DBMS_OUTPUT.PUT_LINE('i_pattern_type:'|| i_pattern_type);
      DBMS_OUTPUT.PUT_LINE('i_tmp_regi_addr_detail:'|| i_tmp_regi_addr_detail);
      DBMS_OUTPUT.PUT_LINE('i_tmp_cont_addr_detail:'|| i_tmp_cont_addr_detail);
      DBMS_OUTPUT.PUT_LINE('I_CASE_TYPE:'|| I_CASE_TYPE);
+
 
   END;
 
@@ -107,7 +115,7 @@ TYPE varrary_type IS TABLE OF VARCHAR2(256 CHAR);
 
 BEGIN
 DBMS_OUTPUT.PUT_LINE('======== TEST START =========');
-
+DBMS_OUTPUT.ENABLE(buffer_size => null);
 
 for v_addr_mapping in (select * from cifx_batch.tt_addr_mapping order by uuid asc)
 loop
@@ -128,6 +136,7 @@ DBMS_OUTPUT.PUT_LINE('pattern2:' || REGEXP_REPLACE(v_addr_mapping.old_addr,
         SUBSTR('永和路67之1號五樓',INSTR('永和路67之1號五樓','號')+1,1)|| '樓',
                   --取得 號 跟 樓 中間的中文數字後，置換為數字 || 'F' -> 5F
                    instr('一二三四五六七八九',SUBSTR('永和路67之1號五樓',INSTR('永和路67之1號五樓','號')+1,1) ,1)||'F'));
+
 DBMS_OUTPUT.PUT_LINE('pattern3:' || REGEXP_REPLACE(
                 REGEXP_REPLACE(v_addr_mapping.old_addr,
                         --取得 號 跟 樓 中間的中文數字-> 五樓
@@ -137,15 +146,26 @@ DBMS_OUTPUT.PUT_LINE('pattern3:' || REGEXP_REPLACE(
                 ,'之','-'));
 
 ------------------------------ PATTERN0 ----------------------------------------
+v_tmp_addr_mapping_old_addr := v_addr_mapping.old_addr;
+v_pattern_type_0 := 'REGEXP_LIKE(REGI_ADDRESS_DETAIL,'|| ''''|| v_tmp_addr_mapping_old_addr || ''''
+||')OR REGEXP_LIKE(CONT_ADDRESS_DETAIL,'|| ''''|| v_tmp_addr_mapping_old_addr|| ''''  || ')';
+v_test_cif_verified_Id := 'X111695470';
+--v_sql := 'SELECT *  FROM CIFX.TB_CUSTOMER CUST WHERE ( :1 ) AND CIF_VERIFIED_ID = :2';
+v_sql := 'SELECT *  FROM CIFX.TB_CUSTOMER CUST WHERE ( '|| v_pattern_type_0 || ' ) AND CIF_VERIFIED_ID = ' || ''''|| v_test_cif_verified_Id || '''' ;
+
+DBMS_OUTPUT.PUT_LINE('v_sql:' || v_sql);
+EXECUTE IMMEDIATE v_sql BULK COLLECT INTO  IMPACT_CUSTS_BULK_OF_PATTERN_0;
+--using in v_pattern_type_0 ,in v_test_cif_verified_Id ;
+DBMS_OUTPUT.PUT_LINE('@@IMPACT_CUSTS_BULK_OF_PATTERN_0:' ||IMPACT_CUSTS_BULK_OF_PATTERN_0(1).CIF_VERIFIED_iD);
 
 
 SELECT * BULK COLLECT INTO IMPACT_CUSTS_BULK_OF_PATTERN_0
 FROM CIFX.TB_CUSTOMER CUST
 WHERE
-REGEXP_LIKE(REGI_ADDRESS_DETAIL,v_addr_mapping.old_addr)  --原PATTERN
+REGEXP_LIKE(REGI_ADDRESS_DETAIL,v_addr_mapping.old_addr)
 OR
-REGEXP_LIKE(CONT_ADDRESS_DETAIL,v_addr_mapping.old_addr)  --原PATTERN
-AND CIF_VERIFIED_ID = 'X111695470' -- 測試用
+REGEXP_LIKE(CONT_ADDRESS_DETAIL,v_addr_mapping.old_addr)
+AND CIF_VERIFIED_ID = 'X111695470'
 ;
 
 IF   v_addr_mapping.old_addr NOT MEMBER OF v_pattern_array  --先前沒找過此PATTERN
@@ -168,9 +188,10 @@ THEN
                                                                                                             v_addr_mapping.old_addr,
                                                                                                             v_addr_mapping.new_addr)
      );
-     -----------------------------------------單一顧客開始-----------------------------------------------
+     -----------------------------------------pattern_0 單一顧客開始-----------------------------------------------
      DBMS_OUTPUT.PUT_LINE('==== SP_INSERT_TMP start =======');
      SP_INSERT_TMP(
+          i_pattern_type => 'pattern_0',
           i_rec_map =>v_addr_mapping,
           i_impact_cust_bulk =>IMPACT_CUSTS_BULK_OF_PATTERN_0,
           i_index =>i
@@ -348,6 +369,8 @@ IF REGEXP_REPLACE(
     end loop;
 
 END IF;
+
+
 
 
 DBMS_OUTPUT.PUT_LINE('符合pattern數目:' ||v_pattern_array.count );
