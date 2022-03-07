@@ -74,7 +74,7 @@ where si.req_timestamp between to_timestamp('2021-12-01 00:00:00', 'yyyy-mm-dd h
 --and si.txn_code in ('NT1504')  --輸入欲查詢交易代號
 order by req_timestamp
 )
-where exec_time >　10000   --執行時間超過 ms
+where exec_time > 10000   --執行時間超過 ms
 and SUBSTR(TXN_CODE,1,2) <> 'BT'   --批次交易不看
 ORDER BY EXEC_TIME DESC
 ;
