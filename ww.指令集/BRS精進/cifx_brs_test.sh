@@ -179,7 +179,7 @@ build_data_A10101A()
 			}
 		},
 		"model": {
-      "customerCirciKey":"A158460693",
+      "customerCirciKey":"Y192980464",
       "birthday":"00000000"
 		},
 		"optional": {
