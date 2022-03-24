@@ -1,0 +1,11 @@
+[http]
+    proxy = http://wcg.esunbank.com.tw:8080
+    sslCAinfo = D:/DevEnvironment/git/Git/mingw64/ssl/certs
+    sslverify = false
+[user]
+    name = rjchenl
+    email = kf135117@gmail.com
+[core]
+    autocrlf = true
+[credential]
+    helper = manager

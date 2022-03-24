@@ -1,0 +1,30 @@
+[includeIf "gitdir:D:/DEV/CIFX_idea_git2_workspace/"]
+path = .gitconfig.firm
+[includeIf "gitdir:D:/DEV/RJ_demo/"]
+path = .gitconfig.github
+[includeIf "gitdir:D:/DEV/RJ_woeksapce/"]
+path = .gitconfig.github
+[includeIf "gitdir:D:/DEV/CIFX_Transfer2/"]
+path = .gitconfig.github
+[includeIf "gitdir:D:/DEV_RJ/"]
+path = .gitconfig.github
+[includeIf "gitdir:D:\DEV\CIFX_GIT"]
+path = .gitconfig.firm
+
+
+[user]
+	name = rjchenl
+	email = kf135117@gmail.com
+[i18n]
+	logoutputencoding = big5
+	commitencoding = utf-8
+[alias]
+	co = checkout
+	br = branch
+	st = status
+[core]
+	autocrlf = true
+[credential]
+	helper = store
+[gui]
+	encoding = utf-8

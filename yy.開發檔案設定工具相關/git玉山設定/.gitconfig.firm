@@ -1,0 +1,9 @@
+[http]
+    sslverify = false
+[user]
+    name = rjchenl
+    email = kf135117@gmail.com
+[core]
+    autocrlf = true
+[credential]
+    helper = manager
