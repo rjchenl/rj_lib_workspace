@@ -4,12 +4,20 @@ select * from cifx.tb_column_code_opt;
 
 --顧客主檔
 SELECT * FROM CIFX.TB_CUSTOMER
+WHERE CIF_VERIFIED_ID  = 'Y192980464'
 ;
 /
 --改號顧客
 select EVER_CHANGED_CERT_NO,PRIOR_PERSON_IDENTIFITY_NO,CIF_VERIFIED_ID from cifx.tb_customer
 where cif_verified_Id = 'C204239173'
 ;
+
+select * from cifx.tb_service_interchange
+where txn_code = 'A10101A'
+and authorizer_code = 'test_build'
+order by req_timestamp desc
+;
+
 
 
 --交易日期區間
