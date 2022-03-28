@@ -19,6 +19,10 @@ where exists (select * from cifx.tb_customer where cif_verified_id = acu.cust_id
     AND PRIOR_PERSON_IDENTIFITY_NO IS  NULL
    ;
 
+   SELECT cif_verified_id,EVER_CHANGED_CERT_NO,PRIOR_PERSON_IDENTIFITY_NO FROM CIFX.TB_CUSTOMER
+    WHERE cif_Verified_id = ''
+   ;
+/
 --重覆改號
 select * from cifx.tb_service_execution_control sec
 where sec.to_exec_timestamp > TO_TIMESTAMP('2021/11/24 00:20:33','YYYY/MM/DD HH24:MI:SS')
