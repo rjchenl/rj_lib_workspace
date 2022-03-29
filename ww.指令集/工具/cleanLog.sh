@@ -1,6 +1,6 @@
 #!/bin/bash
 # author:ESB18442
-# purpose :routine clean cif -ts  log test
+# purpose :routine clean cif -ts  log test2
 
 current_year=`date +%Y`
 current_month=`date +%m`
