@@ -8,8 +8,8 @@ from ods_tw.TB_SERVICE_INTERCHANGE@ods si
 --from cifx.TB_SERVICE_INTERCHANGE si
 where
 SUBSTR(TXN_CODE,1,2) <> 'BT'   --批次交易不看
-AND  si.REQ_TIMESTAMP BETWEEN TO_TIMESTAMP('2021/05/05 00:00:00','YYYY/MM/DD HH24:MI:SS')  --時間區間(不加就是現有全部時間)
-AND TO_TIMESTAMP('2021/05/06 00:00:00 ','YYYY/MM/DD HH24:MI:SS')
+AND  si.REQ_TIMESTAMP BETWEEN TO_TIMESTAMP('2022/03/01 00:00:00','YYYY/MM/DD HH24:MI:SS')  --時間區間(不加就是現有全部時間)
+AND TO_TIMESTAMP('2022/04/01 00:00:00 ','YYYY/MM/DD HH24:MI:SS')
 ),
 txn_avg as (
 select
@@ -70,12 +70,27 @@ si.req_timestamp,
 si.resp_timestamp,
 round(extract(second from (si.resp_timestamp-si.req_timestamp))*1000) as exec_time
 from ODS_TW.TB_SERVICE_INTERCHANGE@ODS si
-where si.req_timestamp between to_timestamp('2021-12-01 00:00:00', 'yyyy-mm-dd hh24:mi:ss') and to_timestamp('2021-12-30 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
+where si.req_timestamp between to_timestamp('2022-03-01 00:00:00', 'yyyy-mm-dd hh24:mi:ss') and to_timestamp('2022-04-01 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
 --and si.txn_code in ('NT1504')  --輸入欲查詢交易代號
 order by req_timestamp
 )
 where exec_time > 10000   --執行時間超過 ms
 and SUBSTR(TXN_CODE,1,2) <> 'BT'   --批次交易不看
 ORDER BY EXEC_TIME DESC
+;
+/
+
+SELECT * from odS_Tw.TB_SERVICE_INTERCHANGE@ods
+where req_timestamp between to_timestamp('2022/03/01 16:00:00','YYYY/MM/DD HH24:MI:SS')
+AND to_timestamp('2022/03/01 16:00:00','YYYY/MM/DD HH24:MI:SS')
+and  service_interchange_id = '1646153110560369-5425388-71-02'
+;
+/
+
+--批次執行失敗
+select * from cifx_batch.TB_BATCH_JOB_EXECUTE_HIS
+where start_date between to_timestamp('2022/03/01 00:00:00','YYYY/MM/DD HH24:MI:SS')
+AND to_timestamp('2022/04/01 00:00:00','YYYY/MM/DD HH24:MI:SS')
+and status <> '0'
 ;
 /
