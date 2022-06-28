@@ -1,0 +1,27 @@
+
+--=================== by case id 改為regression環境測試 ==========================
+UPDATE AUTO_TEST.TB_CIFX_AUTO_TEST_CASE_OCP
+--CIFX_UPDATE
+SET TEST_GROUP  = 'CIFX_RJ',
+    HOST_NAME   = 'cifx-controller-a-reg.apps.ocp-sit1.testesunbank.com.tw',
+    PORT_NUMBER = '443'
+WHERE CASE_ID IN ('TS0116-queryCustContact-0001');
+-- where case_id  like '%TS0116-updateSmsPasswordForDigital-000%';
+
+COMMIT;
+
+
+--確認案例更新完成
+SELECT *
+FROM AUTO_TEST.TB_CIFX_AUTO_TEST_CASE_OCP
+-- WHERE CASE_ID = 'TS0116-updateSmsPasswordForDigital-0001'
+where case_id  like '%TS0116-updateSmsPasswordForDigital-000%';
+;
+
+--確認沒有待測試案例
+SELECT *
+FROM AUTO_TEST.TB_CIFX_AUTO_TEST_CASE_OCP
+where TEST_GROUP = 'CIFX_RJ_TESTING'
+;
+
+--回頭去更新EXCEL案例
