@@ -83,7 +83,7 @@ from ODS_TW.TB_SERVICE_INTERCHANGE@ODS si
 where si.req_timestamp between to_timestamp('2021-06-16 00:00:00', 'yyyy-mm-dd hh24:mi:ss') and to_timestamp('2021-06-17 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
 --and si.txn_code in ('NT1504')  --輸入欲查詢交易代號
 order by req_timestamp
-)
+)d
 where exec_time >　10000   --執行時間超過 ms
 and SUBSTR(TXN_CODE,1,2) <> 'BT'   --批次交易不看
 ORDER BY EXEC_TIME DESC
