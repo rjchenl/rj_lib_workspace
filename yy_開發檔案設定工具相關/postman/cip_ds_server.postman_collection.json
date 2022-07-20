@@ -1,0 +1,2268 @@
+{
+	"info": {
+		"name": "cip_ds_server",
+		"_postman_id": "52083c39-c7f7-bd44-647f-b693f5bd9a57",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "issueForm",
+			"item": [
+				{
+					"name": "/getDetailOfIssueForm",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"1142\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/getDetailOfIssueForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"getDetailOfIssueForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/queryIssueForms",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"applyEmp\":\"\",\r\n\t\t\"currentEmp\":\"\",\r\n\t\t\"startDate\":\"\",\r\n\t\t\"endDate\":\"\",\r\n\t\t\"dateType\":\"\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/queryIssueForms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"queryIssueForms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/insertDraftOfIssueForm",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"issueDescription\":\"dfsksdf\" ,\r\n\t\t\"issueTypeCode\":\"2\",\r\n\t\t\"applyEmpNo\":\"12345\",\t\r\n\t\t\"applyEmpName\":\"方昱傑\",\t\t\r\n\t\t\"grecItemNo\":\"A021\"\t,\r\n\t\t\"department\":\"資訊處\",\r\n\t\t\"issueSystems\": [\r\n            {\r\n                \"systemCode\": \"UP0090_00\",\r\n                \"systemName\": \"CIP\"\r\n            }\r\n        ]\r\n\t}\t\t\r\n}\t"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/insertDraftOfIssueForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"insertDraftOfIssueForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sendIssueFormBySystemIntoProcess",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_00\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"systemCode\": \"OA0053_00\",\r\n        \"systemName\": \"HR核心系統\",\r\n\t\t\"issueDescription\":\"dfsksdf\",\r\n\t\t\"issueTypeCode\":\"5\",\r\n\t\t\"grecItemNo\":\"A021\"\r\n\t}\t\t\r\n}\t"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/sendIssueFormBySystemIntoProcess",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"sendIssueFormBySystemIntoProcess"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/updateDraftOfIssueForm",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"77\",\r\n\t\t\"issueDescription\":\"dfsksdf\" ,\r\n\t\t\"issueTypeCode\":\"2\",\r\n\t\t\"grecItemNo\":\"A023\"\t,\r\n\t\t\"issueSystems\": [\r\n            {\r\n                \"systemCode\": \"54647\",\r\n                \"systemName\": \"CIIP\"\r\n            },\r\n            {\r\n                \"systemCode\": \"564665\",\r\n                \"systemName\": \"NBS\"\r\n            },\r\n            {\r\n                \"systemCode\": \"889454\",\r\n                \"systemName\": \"CIFP\"\r\n            }\r\n        ]\r\n\t}\t\t\r\n}\t"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/updateDraftOfIssueForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"updateDraftOfIssueForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/deleteDraftOfIssueForm",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"77\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/deleteDraftOfIssueForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"deleteDraftOfIssueForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sendIssueFormIntoProcess",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"78\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/sendIssueFormIntoProcess",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"sendIssueFormIntoProcess"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sendIssueFormInProgress",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"78\",\r\n\t\t\"assignEmpNo\":\"11992\",\r\n\t\t\"assignEmpName\":\"陳品樺\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/sendIssueFormInProgress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"sendIssueFormInProgress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sendIssueFormIntoReview",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"75\",\r\n\t\t\"assignEmpNo\":\"11992\",\r\n\t\t\"assignEmpName\":\"陳品樺\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/sendIssueFormIntoReview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"sendIssueFormIntoReview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sendIssueFormInReview",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"75\",\r\n\t\t\"assignEmpNo\":\"11993\",\r\n\t\t\"assignEmpName\":\"王家崧\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/sendIssueFormInReview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"sendIssueFormInReview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/rejectIssueFormIntoProgress",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"75\",\r\n\t\t\"assignEmpNo\":\"11992\",\r\n\t\t\"assignEmpName\":\"陳品樺\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/rejectIssueFormIntoProgress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"rejectIssueFormIntoProgress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/updateIssueForm",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"75\",\r\n\t\t\"expectedExpiryDate\":\"2018/03/29\",\r\n\t\t\"comment\":\"以更正\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/updateIssueForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"updateIssueForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/closeIssueForm",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"formId\":\"75\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/closeIssueForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"closeIssueForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/getSystems",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/getSystems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"getSystems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/getIssueTypes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/getIssueTypes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"getIssueTypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/findSupervisorsWithRoleByAccountId",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"accountId\": 1\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/findSupervisorsWithRoleByAccountId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"findSupervisorsWithRoleByAccountId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/queryResponsibleAccountsOfSystem",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"systemCode\":\"TS0069_00\",\r\n\t\t\"empNo\":\"12345\"\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/queryResponsibleAccountsOfSystem",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"queryResponsibleAccountsOfSystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/getCanBeAssignedAccountsOfSystem",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"systemCode\":\"UP0061_00\"\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/getCanBeAssignedAccountsOfSystem",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"getCanBeAssignedAccountsOfSystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/insertResponsibleSystemsOfAccount",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":\r\n\t{\r\n\t\"accountId\":1,\r\n\t\"systemCode\":\"OA0017_01\"\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/insertResponsibleSystemsOfAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"insertResponsibleSystemsOfAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/deleteResponsibleSystemsOfAccount",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":\r\n\t\t{\r\n\t\t\"accountId\":1,\r\n\t\t\"systemCode\":\"OA0017_01\"\r\n\t\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/issueForm/deleteResponsibleSystemsOfAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"issueForm",
+								"deleteResponsibleSystemsOfAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dataDictionary",
+			"item": [
+				{
+					"name": "/getDataDictionaries",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/dataDictionary/getDataDictionaries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"dataDictionary",
+								"getDataDictionaries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/getDeatilOfDDByItemNo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"itemNo\": \"A001\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/dataDictionary/getDeatilOfDDByItemNo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"dataDictionary",
+								"getDeatilOfDDByItemNo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/updateDataDictionary",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"itemNo\": \"A001\",\r\n        \"itemName\": \"欄位2\",\r\n        \"itemAlias\": \"大陸商主代碼\",\r\n        \"definitionDescription\": \"大陸商主代碼\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/dataDictionary/updateDataDictionary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"dataDictionary",
+								"updateDataDictionary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "goldenRecord",
+			"item": [
+				{
+					"name": "/queryCustomers",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":\r\n\t\t{\r\n\t\t\t\"domainType\":\"G\",\r\n\t\t\t\"queryType\":\"5\",\r\n\t\t\t\"id\":\"80582719\",\r\n\t\t\t\"name\":\"\",\r\n\t\t\t\"identityNo\":\"\",\r\n\t\t\t\"birthday\":\"\",\r\n\t\t\t\"phone\":\"\"\r\n\t\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/goldenRecords/queryCustomers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"goldenRecords",
+								"queryCustomers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/queryGoldenRecords",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":\r\n\t\t{\r\n\t\t\t\"customer\":{\r\n\t\t\t\t\"custId\": 2,\r\n            \t\"custType\": \"O\",\r\n            \t\"id\": \"80582719\",\r\n            \t\"custName\": \"清心福全\",\r\n            \t\"birthday\": \"1947-08-12\",\r\n            \t\"custIdentityNo\": \"80582719\",\r\n            \t\"phone\": \"0947926823\",\r\n            \t\"groupNo\": \"GP001\",\r\n            \t\"groupName\": \"清心福全\",\r\n            \t\"certTypeCode\": \"01\",\r\n            \t\"certName\": \"公司統一編號\"\t\r\n\t\t\t},\r\n\t\t\t\r\n\t\t\t\"goldenRecordItemNos\":[\r\n\t\t\t\t\"A039\"\r\n\t\t\t],\r\n\t\t\t\"goldenRecordItemDgIds\":[\r\n\t\t\t\t\r\n\t\t\t]\r\n\t\t\r\n\t\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/goldenRecords/queryGoldenRecords",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"goldenRecords",
+								"queryGoldenRecords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/queryFieldChanges",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":\r\n\t\t{\r\n\t\t\t\"custId\":\"2000\",\r\n\t\t\t\"domainType\":\"C\",\r\n\t\t\t\"goldenRecordItemNos\":[\r\n\t\t\t\t\"B026\",\r\n\t\t\t\t\"B036\"\r\n\t\t\t],\r\n\t\t\t\"startDate\":\"2018/01/01\",\r\n\t\t\t\"endDate\":\"2018/04/01\"\r\n\t\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/goldenRecords/queryFieldChanges",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"goldenRecords",
+								"queryFieldChanges"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dataValidation",
+			"item": [
+				{
+					"name": "/queryFieldValidations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"systemCode\":\"OA0017_02\",\r\n\t\t\"grecItemNo\":\"A059\",\r\n\t\t\"domainTypeCode\":\"C\",\r\n\t\t\"validationMessage\":\"1\",\r\n\t\t\"startDate\":\"2018/04/23\",\r\n\t\t\"endDate\":\"2018/05/01\"\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/dataValidation/queryFieldValidations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"dataValidation",
+								"queryFieldValidations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notificationDetail",
+			"item": [
+				{
+					"name": "/queryNotifications",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"queryType\":\"\",\r\n\t\t\"certNo\":\"\",\r\n\t\t\"custName\":\"\",\r\n\t\t\"systemCode\":\"\",\r\n\t\t\"goldenRecordItemNo\":\"\",\r\n\t\t\"notificationType\":\"\",\r\n\t\t\"startDate\":\"\",\r\n\t\t\"endDate\":\"\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/notificationDetail/queryNotifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"notificationDetail",
+								"queryNotifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "platformManagment",
+			"item": [
+				{
+					"name": "/accounts/queryAccounts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"empNo\": \"12345\",\r\n        \"empName\": \"陳建安\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/accounts/queryAccounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"accounts",
+								"queryAccounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts/getAllSupervisors",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/accounts/getAllSupervisors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"accounts",
+								"getAllSupervisors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts/getSupervisorsById",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"accountId\" : 1\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/accounts/getSupervisorsById",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"accounts",
+								"getSupervisorsById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts/getAccountsByRole",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"roleCode\":\"DS\"\r\n\t}\r\n\t\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/accounts/getAccountsByRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"accounts",
+								"getAccountsByRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts/getCanBeAssignedSupervisors",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/accounts/getCanBeAssignedSupervisors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"accounts",
+								"getCanBeAssignedSupervisors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts/getSuperviceAccounts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"supervisorId\":3\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/accounts/getSuperviceAccounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"accounts",
+								"getSuperviceAccounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/getFunctionsByEmpNo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\t\t\r\n\t\t\"empNo\":\"12345\"\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/account/getFunctionsByEmpNo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"account",
+								"getFunctionsByEmpNo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/getDetailOfAccount",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"accountId\":1\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/account/getDetailOfAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"account",
+								"getDetailOfAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/insertAccount",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"empNo\": \"12375\",\r\n        \"empName\": \"陳建安\",\r\n        \"status\": \"A\",\r\n        \"roles\": [\r\n            {\r\n                \"roleCode\": \"BA\",\r\n                \"status\": \"I\"\r\n            },\r\n            {\r\n                \"roleCode\": \"BAM\",\r\n                \"status\": \"I\"\r\n            },\r\n            {\r\n                \"roleCode\": \"DS\",\r\n                \"status\": \"I\"\r\n            },\r\n            {\r\n                \"roleCode\": \"DSM\",\r\n                \"status\": \"I\"\r\n            },\r\n            {\r\n                \"roleCode\": \"ADM\",\r\n                \"status\": \"A\"\r\n            }\r\n        ],\r\n        \"supervisors\": [\r\n            {\r\n                \"accountId\": 4,\r\n            \t\"empNo\": \"11992\"\r\n            },\r\n            {\r\n                \"accountId\": 2,\r\n            \t\"empNo\": \"11324\"\r\n            }\r\n        ]\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/account/insertAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"account",
+								"insertAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/updateAccount",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"accountId\": 73,\r\n\t\t\"empNo\": \"12375\",\r\n        \"empName\": \"陳建安\",\r\n        \"status\": \"A\",\r\n        \"roles\": [\r\n            {\r\n                \"roleCode\": \"BA\",\r\n                \"status\": \"A\"\r\n            },\r\n            {\r\n                \"roleCode\": \"BAM\",\r\n                \"status\": \"I\"\r\n            },\r\n            {\r\n                \"roleCode\": \"DS\",\r\n                \"status\": \"I\"\r\n            },\r\n            {\r\n                \"roleCode\": \"DSM\",\r\n                \"status\": \"I\"\r\n            },\r\n            {\r\n                \"roleCode\": \"ADM\",\r\n                \"status\": \"I\"\r\n            }\r\n        ],\r\n        \"supervisors\": [\r\n            {\r\n                \"accountId\": 4,\r\n            \t\"empNo\": \"11992\"\r\n            },\r\n            {\r\n                \"accountId\": 2,\r\n            \t\"empNo\": \"11324\"\r\n            }\r\n        ]\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/account/updateAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"account",
+								"updateAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/deleteAccount",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"accountId\": 13\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/account/deleteAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"account",
+								"deleteAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/roles/getRoles",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/roles/getRoles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"roles",
+								"getRoles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/role/updateStatusOfRole",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"roleCode\":\"BA\",\r\n\t\t\"status\":\"A\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/role/updateStatusOfRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"role",
+								"updateStatusOfRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/role/updateRole",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"roleCode\":\"BA\",\r\n\t\t\"roleName\":\"業務分析師\",\r\n\t\t\"description\":\"業務分析師\"\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/role/updateRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"role",
+								"updateRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/functions/getModules",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/functions/getModules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"functions",
+								"getModules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/functions/getMenus",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t}\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/functions/getMenus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"functions",
+								"getMenus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/functions/getFunctionsOfRole",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":\r\n\t{\r\n\t\t\"roleCode\":\"DS\",\r\n\t\t\"menuCode\":\"\"\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/functions/getFunctionsOfRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"functions",
+								"getFunctionsOfRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/functions/insertFunctionsOfRole",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":[\r\n\t\t  {\r\n\t\t\t\"roleCode\":\"DS\",\r\n\t\t\t\"functionCode\":\"NI0100\"\r\n\t\t  },\r\n\t\t  {\r\n\t\t\t\"roleCode\":\"BA\",\r\n\t\t\t\"functionCode\":\"NI0100\"\r\n\t\t  }\r\n\t]\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/functions/insertFunctionsOfRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"functions",
+								"insertFunctionsOfRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/functions/deleteFunctionsOfRole",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":[\r\n\t\t  {\r\n\t\t\t\"roleCode\":\"ADM\",\r\n\t\t\t\"functionCode\":\"UM0304\"\r\n\t\t  },\r\n\t\t  {\r\n\t\t\t\"roleCode\":\"ADM\",\r\n\t\t\t\"functionCode\":\"UM0305\"\r\n\t\t  }\r\n\t]\t\t\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/functions/deleteFunctionsOfRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"functions",
+								"deleteFunctionsOfRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/employee/queryEmployee",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let t = new Date().toISOString().replace('T', ' ').slice(0, 19);",
+									"pm.environment.set(\"timestamp\", t);",
+									"",
+									"let s = new Date().toISOString().replace(/T/g, '').replace(/-/g, '').replace(/:/g, '').slice(0, 14);",
+									"pm.environment.set(\"timestamp_s\", s);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\r\n\t\"header\":{\t\t\r\n\t\t\"msgNo\":\"UP0090_02_{{timestamp_s}}_001\",\t\r\n\t\t\"txnCode\":\"DD0100\",\t\r\n\t\t\"txnTime\":\"{{timestamp}}\",\t\r\n\t\t\"senderCode\":\"UP0090_02\",\t\r\n\t\t\"receiverCode\":\"UP0090_01\",\t\r\n\t\t\"operatorCode\":\"19801\",\t\r\n\t\t\"unitCode\":\"0211\",\t\r\n\t\t\"authorizerCode\":\"19801\"\t\r\n\t},\t\t\r\n\t\"requestBody\":{\r\n\t\t\"empNo\":\"12345\",\r\n\t\t\"empName\":null\r\n\t}\r\n}\t\t\t\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/esb_cip_ds_server/service/platformManagment/employee/queryEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esb_cip_ds_server",
+								"service",
+								"platformManagment",
+								"employee",
+								"queryEmployee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
